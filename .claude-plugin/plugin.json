@@ -1,0 +1,12 @@
+{
+  "name": "kythene",
+  "description": "Connect to Kythene - the shared memory and output layer for AI-native teams - and use it well (recall, remember, publish, review).",
+  "version": "0.1.0",
+  "author": { "name": "Tamperan" },
+  "mcpServers": {
+    "kythene": {
+      "type": "http",
+      "url": "https://kythene.com/mcp/kythene"
+    }
+  }
+}
