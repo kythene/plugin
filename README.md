@@ -18,21 +18,36 @@ Claude Code manifest in `.claude-plugin/`.
 
 ## Installing
 
-Install it from your client's plugin directory or marketplace, pointing at this
-repository. The MCP server is authenticated: the first time your agent uses it,
-you will be asked to authorise access to your Kythene workspace.
+In Claude Code, add this marketplace and install the plugin:
 
-You need a Kythene account. Sign up at [kythene.com](https://kythene.com).
+    /plugin marketplace add kythene/plugin
+    /plugin install kythene@kythene
+
+Other clients: install from your client's plugin directory or marketplace,
+pointing at this repository.
+
+The MCP server is authenticated: the first time your agent uses it, you will be
+asked to authorise access to your Kythene workspace. You need a Kythene account -
+sign up at [kythene.com](https://kythene.com).
 
 ## Running your own Kythene?
 
 **This repository points at the hosted service at `https://kythene.com/mcp/kythene`.** It is baked in,
-because a Git repository is a static artifact and cannot know about your install.
+because a Git repository is a static artifact and cannot know about your install -
+so do not install from this repository on a self-host box, or your agent will talk
+to our Kythene rather than yours.
 
-If you self-host, do not use this repository. Download the bundle from your own
-instance instead, at `/kythene-plugin.zip` (there is a link on the "Connect your
-AI" page). That bundle is generated per instance with your own URL already in
-it, so the plugin talks to your Kythene rather than ours.
+Install from your own instance instead. Every instance advertises a marketplace
+carrying its own URL, so the install is one command and the plugin talks to your
+box:
+
+    /plugin marketplace add https://<your-instance>/.claude-plugin/marketplace.json
+    /plugin install kythene@kythene
+
+(There is a copy-paste version on your instance's "Connect your AI" page.) That
+`archive` source needs Claude Code v2.1.224 or newer; on an older version,
+download `/kythene-plugin.zip` from your instance and run `/plugin marketplace add
+./kythene` from the unzipped folder.
 
 ## A note on this repository
 

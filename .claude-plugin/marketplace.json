@@ -1,0 +1,11 @@
+{
+  "name": "kythene",
+  "owner": { "name": "Tamperan" },
+  "description": "Kythene - the shared memory and output layer for AI-native teams. Connect an assistant to recall, remember, publish and review.",
+  "plugins": [
+    {
+      "name": "kythene",
+      "source": "./"
+    }
+  ]
+}
