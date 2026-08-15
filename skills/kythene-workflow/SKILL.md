@@ -1,14 +1,15 @@
 ---
 name: kythene-workflow
-description: How to use Kythene as an AI-native team's shared memory and output layer - recall context at session start, remember what you learn, publish your work so teammates and their AI can build on it, and pick up feedback. Use whenever you are working in a project that has Kythene connected.
+description: How to work with Kythene - where a team and their AI review each other's work: recall context at session start, remember what you learn, publish your output for teammates and their AI to review and build on, and pick up feedback. Use whenever you are working in a project that has Kythene connected.
 when_to_use: At the start of a working session on a Kythene-connected project, and whenever you produce output worth sharing, learn something worth keeping, or need to see what the team (and their AI instances) has produced.
 ---
 
 # Working with Kythene
 
-Kythene is the shared memory and output layer for an AI-native team. Your work,
-and what you learn, should flow into it so other people - and their AI instances -
-can see and build on it. The Kythene MCP tools are how you do that.
+Kythene is where a team and their AI review each other's work - a shared, reviewed
+memory of what the team has produced and agreed. Your work, and what you learn,
+should flow into it so other people - and their AI instances - can see, review and
+build on it. The Kythene MCP tools are how you do that.
 
 ## At the start of a session
 
