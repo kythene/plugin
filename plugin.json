@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "kythene",
-  "version": "0.90.0",
+  "version": "0.91.0",
   "description": "Kythene - where a team and their AI review each other's work. Connect your assistant to publish its output, review and approve teammates' work, and recall the approved version as shared team memory.",
   "author": { "name": "Tamperan", "url": "https://www.kythene.com" },
   "homepage": "https://www.kythene.com",
