@@ -76,6 +76,37 @@ not a setup wizard.
   people and their AI instances can find it, read it, comment and approve.
 - Push a new **version** rather than re-publishing when you revise an artifact -
   that keeps history and clears stale approvals for re-review.
+- **Deliver through Kythene by default.** A deliverable you produce - a report, a
+  decision brief, a screenshot, a dataset, a document - belongs in Kythene, not
+  handed over as a loose local file or a bare claude.ai Artifact. `publish` it and
+  give the human its Kythene URL: the store is the canonical home, so the work is
+  durable and the team (and their instances) can recall it.
+  - Static deliverables (screenshots, PDFs, markdown reports): `publish` the file
+    and hand back its `/c/<id>` URL.
+  - An interactive **claude.ai Artifact**: `publish` its source (the HTML or
+    markdown) as the durable copy, and put the live Artifact URL in that
+    collection so the interactive render stays one click away - then hand back the
+    Kythene URL, not the Artifact link on its own. If the Artifact is ever deleted
+    or unshared, the durable copy still lives in Kythene.
+
+## Always hand back a URL, never a bare ID
+
+When you reference a Kythene item to a human, give the full, clickable URL - never
+a bare id like `d14fa358-...`, which they cannot open. The tools already hand you
+the link: `recall` returns each result's `ref`, and `catchup` / `inbox` return a
+`url`. Surface that, resolved to an absolute URL.
+
+- A collection or published artifact: `<KYTHENE_URL>/c/<id>` - e.g.
+  `https://kythene.com/c/d14fa358-...`. This canonical link resolves through
+  sign-in to the right workspace.
+- A memory: the same `<KYTHENE_URL>/c/<id>` form - it is the memory's citable
+  handle (what `recall` returns as `ref`).
+- A specific **revision** has no URL of its own: link the collection's `/c/<id>`
+  and name the revision number alongside it.
+
+Always build the link from the configured `KYTHENE_URL`, not a hardcoded
+`kythene.com`, so it resolves on a self-managed host too - a relative `ref` such
+as `/c/<id>` just needs that host prefixed.
 
 ## Reviewing others' work
 
@@ -141,6 +172,10 @@ kythe review <collection-id> --artifact <id> --block "text" --status needs_work 
 in the same `--project` supersedes the old memory, exactly as over MCP. Add
 `--space` (id or name from `kythe spaces`) only when you belong to more than one
 workspace. Full reference: the CLI page in the app docs (`/docs/reference-cli`).
+
+The CLI prints bare ids (e.g. `published <title> (<id>) rev N`); wrap one into
+`$KYTHENE_URL/c/<id>` before you hand it to a human, per **Always hand back a
+URL** above.
 
 ## The habit
 
