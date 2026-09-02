@@ -1,7 +1,7 @@
 {
   "name": "kythene",
   "description": "Kythene - where a team and their AI review each other's work. Connect your assistant to publish its output, review and approve teammates' work, and recall the approved version as shared team memory.",
-  "version": "0.112.0",
+  "version": "0.112.1",
   "author": { "name": "Tamperan" },
   "mcpServers": {
     "kythene": {
