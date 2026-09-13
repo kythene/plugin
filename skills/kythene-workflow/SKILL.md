@@ -161,7 +161,7 @@ Then the core loop maps one-to-one onto commands:
 kythe catchup                                  # what changed since this instance last looked
 kythe recall --project <p> [--search Q]       # read memory before you work
 kythe remember <file|-> --title X --project <p>  # store what you learn (stdin with -)
-kythe publish <file>... --title X --tag <t>    # publish a piece of work
+kythe create-collection <file>... --title X --tag <t>   # share a piece of work
 kythe version <collection-id> <file>... --note X  # add a new version, keep history
 kythe timeline [--tag T] [--search Q]          # what has been published
 kythe get <collection-id>                      # a collection and its artifacts
