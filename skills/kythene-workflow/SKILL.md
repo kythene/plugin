@@ -1,29 +1,29 @@
 ---
 name: kythene-workflow
 description: How to work with Kythene - where a team and their AI review each other's work: recall context at session start, remember what you learn, publish your output for teammates and their AI to review and build on, and pick up feedback. Use whenever you are working in a project that has Kythene connected.
-when_to_use: At the start of a working session on a Kythene-connected project, and whenever you produce output worth sharing, learn something worth keeping, or need to see what the team (and their AI instances) has produced.
+when_to_use: At the start of a working session on a Kythene-connected project, and whenever you produce output worth sharing, learn something worth keeping, or need to see what the team (and their AI agents) has produced.
 ---
 
 # Working with Kythene
 
 Kythene is where a team and their AI review each other's work - a shared, reviewed
 memory of what the team has produced and agreed. Your work, and what you learn,
-should flow into it so other people - and their AI instances - can see, review and
+should flow into it so other people - and their AI agents - can see, review and
 build on it. The Kythene MCP tools are how you do that.
 
 ## At the start of a session
 
 1. **`catch_up`** FIRST. It returns what changed in your workspaces since THIS
-   instance last looked - publishes and shares by your other instances and your
+   agent last looked - publishes and shares by your other agents and your
    teammates, since your previous session - so you open already knowing "what did
    the other Claude do while I was away?" instead of finding out by chance. It
-   excludes your own instance's writes, and reading it advances your cursor (so the
+   excludes your own agent's writes, and reading it advances your cursor (so the
    next session shows only what is new again); pass `peek` to look without
    consuming. On the very first run it just sets your watermark and returns empty.
 2. **`recall`** for the project you are about to work on. This returns the team's
    accumulated memories plus their artifact data in one call - decisions, gotchas,
    conventions, prior findings. Read it before doing anything, so you are not
-   re-deriving what someone (or their instance) already worked out.
+   re-deriving what someone (or their agent) already worked out.
 3. **`get_inbox`** to pick up feedback on your own previous publishes - comments,
    approvals, rejections since you last looked. Fold it into what you do next.
 4. **`list_collections`** (optionally) to see what has been published into the space
@@ -66,21 +66,30 @@ not a setup wizard.
   otherwise good note. Never leave a memory you know to be false in place, and
   never silently work around one.
 - **`report_activity`** to report what you are working on (files, modules, topics) when
-  you start on something, so teammates' instances see it and conflicts surface
+  you start on something, so teammates' agents see it and conflicts surface
   early.
 
 ## When you produce something worth sharing
 
 - **`create_collection`** it (a bench result, a doc, a JSON output, a binary - any "piece of
   work") as a collection, with tags and a title. This makes it known to the space:
-  people and their AI instances can find it, read it, comment and approve.
+  people and their AI agents can find it, read it, comment and approve.
+- **Anything more than a short note goes by upload ticket, not inline.**
+  `create_collection` carries the content THROUGH the tool call, and on a voice or
+  chat surface that stalls - you will sit there failing rather than publishing. So:
+  call **`create_upload_ticket`** with the filename (and a title and tags if you
+  have them), then POST the file's raw bytes to the address it returns, with the
+  `X-Upload-Ticket` header, from your code sandbox. Not base64, not multipart, not
+  JSON - the body IS the file. The ticket works once and expires in minutes, and
+  the response gives you the URL to hand back. If you find yourself base64-ing a
+  document into a tool call, you have taken the path that does not work.
 - Push a new **version** rather than re-publishing when you revise an artifact -
   that keeps history and clears stale approvals for re-review.
 - **Deliver through Kythene by default.** A deliverable you produce - a report, a
   decision brief, a screenshot, a dataset, a document - belongs in Kythene, not
   handed over as a loose local file or a bare claude.ai Artifact. `create_collection` it and
   give the human its Kythene URL: the store is the canonical home, so the work is
-  durable and the team (and their instances) can recall it.
+  durable and the team (and their agents) can recall it.
   - Static deliverables (screenshots, PDFs, markdown reports): `create_collection` the file
     and hand back its `/c/<id>` URL.
   - An interactive **claude.ai Artifact**: `create_collection` its source (the HTML or
@@ -135,7 +144,7 @@ triage a whole doc in one pass, and act on what others (human or AI) flagged.
   - **reject_remove** - this block should be removed.
   A comment is allowed only once a status is set; set status empty to clear a flag.
 - **Producing** (triage): read the blocks and set the right status per block, with
-  a comment where you set one - so a human, or another instance, can act on it.
+  a comment where you set one - so a human, or another agent, can act on it.
 - **Acting**: pick up a `needs_work` block, do the work, then mark it `done`; treat
   `needs_review` (including the auto-set-on-change ones) as "look at this again".
 - Human-set flags show in Ember, AI-set in Iris, so it is clear at a glance who
@@ -158,7 +167,7 @@ export KYTHENE_TOKEN=twk_...                  # created in the app; shown once
 Then the core loop maps one-to-one onto commands:
 
 ```
-kythe catchup                                  # what changed since this instance last looked
+kythe catchup                                  # what changed since this agent last looked
 kythe recall --project <p> [--search Q]       # read memory before you work
 kythe remember <file|-> --title X --project <p>  # store what you learn (stdin with -)
 kythe create-collection <file>... --title X --tag <t>   # share a piece of work
@@ -180,6 +189,6 @@ URL** above.
 ## The habit
 
 Catch up and recall at the start, remember as you go, publish what you make, check
-your inbox. Do that and the next instance - yours or a teammate's - starts from
+your inbox. Do that and the next agent - yours or a teammate's - starts from
 where you finished instead of from scratch. That is the whole value of Kythene; use
 it.
