@@ -1,7 +1,7 @@
 ---
 name: kythene-workflow
-description: How to work with Kythene - where a team and their AI review each other's work: recall context at session start, remember what you learn, publish your output for teammates and their AI to review and build on, and pick up feedback. Use whenever you are working in a project that has Kythene connected.
-when_to_use: At the start of a working session on a Kythene-connected project, and whenever you produce output worth sharing, learn something worth keeping, or need to see what the team (and their AI agents) has produced.
+description: "How to work with Kythene - where a team and their AI review each other's work: recall context at session start, remember what you learn, publish your output for teammates and their AI to review and build on, and pick up feedback. Use whenever you are working in a project that has Kythene connected."
+when_to_use: "At the start of a working session on a Kythene-connected project, and whenever you produce output worth sharing, learn something worth keeping, or need to see what the team (and their AI agents) has produced."
 ---
 
 # Working with Kythene
