@@ -8,7 +8,7 @@ it, rather than each session starting cold.
 The plugin ships two things:
 
 - **an MCP server** at `https://kythene.com/mcp/kythene`, giving your agent the Kythene tools
-  (`catchup`, `recall`, `remember`, `publish`, and the rest), and
+  (`catch_up`, `recall`, `remember`, `create_collection`, and the rest), and
 - **the `kythene-workflow` skill**, which teaches the agent when to reach for
   them: catch up at the start of a session, recall before starting work, and
   publish what it produces.
