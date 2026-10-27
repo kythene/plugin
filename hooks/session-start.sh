@@ -12,7 +12,7 @@
 
 # No kythe CLI, or no credentials -> nothing to do. Quietly yield to the baseline.
 command -v kythe >/dev/null 2>&1 || exit 0
-[ -n "${KYTHENE_TOKEN:-}" ] || exit 0
+[ -n "${KYTHE_TOKEN:-${KYTHENE_TOKEN:-}}" ] || exit 0  # KYTHENE_TOKEN: old name, still read by kythe
 
 # Best-effort and bounded: a slow or unreachable server yields no priming rather
 # than a delay or an error at session start. brief scopes to the workspace the

@@ -105,15 +105,15 @@ a bare id like `d14fa358-...`, which they cannot open. The tools already hand yo
 the link: `recall` returns each result's `ref`, and `catch_up` / `get_inbox` return a
 `url`. Surface that, resolved to an absolute URL.
 
-- A collection or published artifact: `<KYTHENE_URL>/c/<id>` - e.g.
+- A collection or published artifact: `<KYTHE_URL>/c/<id>` - e.g.
   `https://kythene.com/c/d14fa358-...`. This canonical link resolves through
   sign-in to the right workspace.
-- A memory: the same `<KYTHENE_URL>/c/<id>` form - it is the memory's citable
+- A memory: the same `<KYTHE_URL>/c/<id>` form - it is the memory's citable
   handle (what `recall` returns as `ref`).
 - A specific **revision** has no URL of its own: link the collection's `/c/<id>`
   and name the revision number alongside it.
 
-Always build the link from the configured `KYTHENE_URL`, not a hardcoded
+Always build the link from the configured `KYTHE_URL`, not a hardcoded
 `kythene.com`, so it resolves on a self-managed host too - a relative `ref` such
 as `/c/<id>` just needs that host prefixed.
 
@@ -160,8 +160,8 @@ work, since they return richer, in-context results.
 Set it up once (a `twk_` API key from **Connect your AI** in the app):
 
 ```
-export KYTHENE_URL=https://kythene.com   # your own host if self-hosting
-export KYTHENE_TOKEN=twk_...                  # created in the app; shown once
+export KYTHE_URL=https://kythene.com   # your own host if self-hosting
+export KYTHE_TOKEN=twk_...             # created in the app; shown once
 ```
 
 Then the core loop maps one-to-one onto commands:
@@ -183,7 +183,7 @@ in the same `--project` supersedes the old memory, exactly as over MCP. Add
 workspace. Full reference: the CLI page in the app docs (`/docs/reference-cli`).
 
 The CLI prints bare ids (e.g. `published <title> (<id>) rev N`); wrap one into
-`$KYTHENE_URL/c/<id>` before you hand it to a human, per **Always hand back a
+`$KYTHE_URL/c/<id>` before you hand it to a human, per **Always hand back a
 URL** above.
 
 ## The habit
