@@ -56,6 +56,16 @@ not a setup wizard.
   the same project supersedes the old memory, so keep it current rather than
   piling up duplicates. This is the point of Kythene: what you learn does not
   evaporate at the end of the session.
+- **Facts, questions and decisions outrank memories.** What someone outside the
+  team told us (a client, a document, their site) goes in with **`record_fact`**:
+  their words in `says`, who said it in `source`, the day in `when`, and `how`
+  (meeting, email, call, message, their-site, their-document). Never record our
+  own guess as a fact. Something we need from them and don't have is
+  **`ask_question`**; when they answer, **`answer_question`** settles it into a
+  fact. A call we made - an assumption included - is **`record_decision`** (what,
+  who, when, why). If the source changes what they said, or we decide afresh,
+  **`replace_record`**; if we wrote it down wrong, **`correct_record`**. Before
+  you ask a client something or assume something, check **`list_facts`**.
 - **Keep memory true.** When a recalled memory contradicts the live system,
   fixing it is part of the task, not a separate chore. Verify against the real
   system first (a memory disagreeing with your assumption is not evidence it is
