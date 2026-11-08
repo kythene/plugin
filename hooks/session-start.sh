@@ -21,5 +21,5 @@ brief=$(timeout 5 kythe brief 2>/dev/null) || exit 0
 [ -n "$brief" ] || exit 0
 
 # Claude Code adds a SessionStart command hook's stdout to the session context.
-printf 'Kythene workspace brief (call `brief` again any time to refresh):\n\n%s\n' "$brief"
+printf '%s workspace brief (call `brief` again any time to refresh):\n\n%s\n' 'Kythene' "$brief"
 exit 0
