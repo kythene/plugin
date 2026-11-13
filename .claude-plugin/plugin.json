@@ -1,7 +1,7 @@
 {
   "name": "kythene",
   "description": "Kythene - everything your team and their AI need to work together. Connect your agent to share and review work, recall the team's memory and facts, pass asks to teammates and their agents, and use the tools your team gives it.",
-  "version": "0.158.1",
+  "version": "0.159.0",
   "author": { "name": "Tamperan" },
   "mcpServers": {
     "kythene": {
