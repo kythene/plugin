@@ -96,6 +96,22 @@ not a setup wizard.
   document into a tool call, you have taken the path that does not work.
 - Push a new **version** rather than re-publishing when you revise an artifact -
   that keeps history and clears stale approvals for re-review.
+- **A Markdown document with a `layout` in its front matter builds its own PDF.**
+  Kythene renders it and keeps the PDF paired with the Markdown, a new PDF
+  version for every Markdown version. So push **only the Markdown**. Pushing a
+  PDF you rendered yourself alongside it makes two PDF versions per edit - yours,
+  then Kythene's - and doubles the history for nothing. If you need your own
+  render for something else (a zip, an attachment), keep it out of the push.
+  Never `add` a hand-made PDF with the document's name beside the Markdown either:
+  Kythene builds its own next to it, and the collection ends up with two files of
+  the same name, one of them going stale.
+- **A document's own version number moves per issue, not per edit.** Kythene's
+  version history already records every edit, with its note. The version printed
+  on the document (front matter `version:`) is what a reader quotes back, so it
+  changes once each time the document goes out for review or is sent - not on
+  every correction inside one sitting. Put the detail of each edit in the
+  `--note`, not in a new number. Use a `0.x` or `"1.2 draft"` number while it's
+  a draft, and keep the numbers unique: never reuse one, never skip one.
 - **Deliver through Kythene by default.** A deliverable you produce - a report, a
   decision brief, a screenshot, a dataset, a document - belongs in Kythene, not
   handed over as a loose local file or a bare claude.ai Artifact. `create_collection` it and
